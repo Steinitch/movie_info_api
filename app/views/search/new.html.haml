@@ -6,8 +6,16 @@
 
 %hr
 
-%h1=@response["Title"]
+-if @response['Response'] == 'False'
+  %h2
+    = "Sorry, we couldn't find any movies with the name of: #{@search_term}"
+-else
+  %h1=@response["Title"]
 
-=image_tag(@response["Poster"])
+  - if @response['Poster'] == 'N/A'
+    %h4
+      = "Sorry no poster is available for #{@search_term}"
+  -else
+    =image_tag(@response["Poster"])
 
 

@@ -23,21 +23,34 @@
             %tr
               %td Rated
               %td= @response['Rated'] 
-            %tr.bg-primary
+            %tr
               %td Year Released
               %td= @response['Year'] 
+            
+
+
             %tr
               %td Language
               %td= @response['Language'] 
-            %tr.bg-primary
+            
+
+            %tr
               %td Actors
               %td= @response['Actors'] 
+            
+
             %tr
               %td Country
               %td= @response['Country'] 
+            
+
+
             %tr
               %td Website
-              %td= link_to("Click Me", @response['Website'] )
+              - if @response['Website'] == 'N/A'
+                %td Sorry no website is availabe for               
+              - else
+                %td= link_to("Click Me", @response['Website'], target: '_blank' )
                  
 
 

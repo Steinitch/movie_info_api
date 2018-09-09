@@ -17,9 +17,28 @@
 
         .col-lg-6.col-md-6
           %h3.text-centered.title Movie Info
-          %ul
-            %li= "Rated: #{@response['Rated'] }"
-            %li= "Year Released: #{@response['Year'] }"
+    
+          
+          %table.table.table-striped.table-dark.table-bordered.table-hover.table-sm
+            %tr
+              %td Rated
+              %td= @response['Rated'] 
+            %tr.bg-primary
+              %td Year Released
+              %td= @response['Year'] 
+            %tr
+              %td Language
+              %td= @response['Language'] 
+            %tr.bg-primary
+              %td Actors
+              %td= @response['Actors'] 
+            %tr
+              %td Country
+              %td= @response['Country'] 
+            %tr
+              %td Website
+              %td= link_to("Click Me", @response['Website'] )
+                 
 
 
         .col-lg-6.col-md-6

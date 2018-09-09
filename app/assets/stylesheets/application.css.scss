@@ -14,3 +14,20 @@
 
 
 @import "bootstrap";
+
+.background {
+  background-image: linear-gradient(red, yellow);
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.pull-right {
+  display: block;
+  float: right;
+}
+
+.title {
+  font-family: Impact, Charcoal, sans-serif;
+}

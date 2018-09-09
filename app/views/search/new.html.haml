@@ -1,21 +1,34 @@
+.jumbotron.background
+  .pull-right
+    = link_to 'Search Again', root_path, class: 'btn btn-primary'
 
 
-= link_to 'Search Again', root_path, class: 'btn btn-primary'
 
 
-
-%hr
-
--if @response['Response'] == 'False'
-  %h2
-    = "Sorry, we couldn't find any movies with the name of: #{@search_term}"
--else
-  %h1=@response["Title"]
-
-  - if @response['Poster'] == 'N/A'
-    %h4
-      = "Sorry no poster is available for #{@search_term}"
+  -if @response['Response'] == 'False'
+    %h2
+      = "Sorry, we couldn't find any movies with the name of: #{@search_term}"
   -else
-    =image_tag(@response["Poster"])
+    %h1.text-centered.title=@response["Title"]
+    %hr
+
+    .container
+      .row
+
+        .col-lg-6.col-md-6
+          %h3.text-centered.title Movie Info
+          %ul
+            %li= "Rated: #{@response['Rated'] }"
+            %li= "Year Released: #{@response['Year'] }"
+
+
+        .col-lg-6.col-md-6
+
+          - if @response['Poster'] == 'N/A'
+            %h4
+              = "Sorry no poster is available for #{@search_term}"
+          -else
+            .text-centered
+              =image_tag(@response["Poster"])
 
 

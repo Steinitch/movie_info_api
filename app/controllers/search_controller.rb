@@ -6,8 +6,16 @@ class SearchController < ApplicationController
 
   def new
     @search_term = params[:q]
+    @response = HTTParty.get("http://www.omdbapi.com/?s=#{@search_term}&apikey=61af6132&type=movie")
 
-    @response = HTTParty.get("http://www.omdbapi.com/?t=#{@search_term}&apikey=61af6132&type=movie")
+    puts JSON.pretty_generate(@response)
+
+  end
+
+  def show
+    @imdb_id = params[:id]
+
+    @response = HTTParty.get("http://www.omdbapi.com/?i=#{@imdb_id}&apikey=61af6132&type=movie")
 
     puts JSON.pretty_generate(@response)
   end

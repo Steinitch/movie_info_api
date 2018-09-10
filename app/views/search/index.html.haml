@@ -1,10 +1,11 @@
-%h1 My movie app
+.jumbotron.background-new
+  %h1 My movie app
 
-%hr
-%h3 Type a movie name here and we will tell you all about it!
-  
-= form_tag({controller: "search", action: "new"}, method: "get") do
-  = label_tag(:q, "Search for:")
-  = text_field_tag(:q)
-  = submit_tag("Search")
+  %hr
+  %h3 Type a movie name here and we will tell you all about it!
+
+  = form_tag({controller: "search", action: "new"}, method: "get") do
+    = label_tag(:q, "Search for:")
+    = text_field_tag(:q)
+    = submit_tag("Search", class: 'btn btn-primary')
 

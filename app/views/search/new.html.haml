@@ -1,97 +1,13 @@
-.jumbotron.background
-  .pull-right
-    = link_to 'Search Again', root_path, class: 'btn btn-primary'
+.jumbotron.background-new
 
-
-
-
-  -if @response['Response'] == 'False'
-    %h2
-      = "Sorry, we couldn't find any movies with the name of: #{@search_term}"
-  -else
-    %h1.text-centered.title=@response["Title"]
-    %hr
-
-    .container
-      .row
-
-        .col-lg-6.col-md-6
-          %h3.text-centered.title Movie Info
-    
-          
-          %table.table.table-striped.table-dark.table-bordered.table-hover.table-sm
-            %tr
-              %td Rated
-              %td= @response['Rated'] 
-            %tr
-              %td Year Released
-              %td= @response['Year'] 
-            
-
-
-            %tr
-              %td Language
-              %td= @response['Language'] 
-            
-
-            %tr
-              %td Actors
-              %td= @response['Actors'] 
-            
-
-            %tr
-              %td Country
-              %td= @response['Country'] 
-            
-
-
-            %tr
-              %td Website
-              - if @response['Website'] == 'N/A'
-                %td Sorry no website is availabe for               
-              - else
-                %td= link_to("Click Me", @response['Website'], target: '_blank' )
-            %tr
-              %td Metascore
-              %td= @response['Metascore'] 
-            %tr
-              %td imdbRating
-              %td= @response['imdbRating'] 
-            %tr
-              %td imdbVotes
-              %td= @response['imdbVotes']
-            %tr
-              %td Type
-              %td= @response['Type']
-            %tr
-              %td DVD
-              %td= @response['DVD']
-            %tr
-              %td Writer
-              %td= @response['Writer']
-            %tr
-              %td Director
-              %td= @response['Director']
-            %tr
-              %td Genre
-              %td= @response['Genre'] 
-            %tr
-              %td Runtime
-              %td= @response['Runtime']
-            %tr
-              %td The date the movie was released
-              %td= @response['Released']   
-
-                 
-
-
-        .col-lg-6.col-md-6
-
-          - if @response['Poster'] == 'N/A'
-            .text-centered
-              =image_tag('http://makeupstudio.lu/html/images/poster/no_poster_available.jpg')
-          -else
-            .text-centered
-              =image_tag(@response["Poster"])
-
-
+  %table.table.table-responsive
+    %thead
+      %th Movie
+      %th Year
+      %th Action
+    - @response["Search"].each do |movie|
+      %tr
+        %td= movie['Title']
+        %td= movie['Year']
+        %td
+          = link_to "Get Info", search_path(movie['imdbID'])

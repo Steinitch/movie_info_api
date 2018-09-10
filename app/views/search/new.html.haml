@@ -51,6 +51,37 @@
                 %td Sorry no website is availabe for               
               - else
                 %td= link_to("Click Me", @response['Website'], target: '_blank' )
+            %tr
+              %td Metascore
+              %td= @response['Metascore'] 
+            %tr
+              %td imdbRating
+              %td= @response['imdbRating'] 
+            %tr
+              %td imdbVotes
+              %td= @response['imdbVotes']
+            %tr
+              %td Type
+              %td= @response['Type']
+            %tr
+              %td DVD
+              %td= @response['DVD']
+            %tr
+              %td Writer
+              %td= @response['Writer']
+            %tr
+              %td Director
+              %td= @response['Director']
+            %tr
+              %td Genre
+              %td= @response['Genre'] 
+            %tr
+              %td Runtime
+              %td= @response['Runtime']
+            %tr
+              %td The date the movie was released
+              %td= @response['Released']   
+
                  
 
 

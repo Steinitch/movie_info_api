@@ -57,8 +57,8 @@
         .col-lg-6.col-md-6
 
           - if @response['Poster'] == 'N/A'
-            %h4
-              = "Sorry no poster is available for #{@search_term}"
+            .text-centered
+              =image_tag('http://makeupstudio.lu/html/images/poster/no_poster_available.jpg')
           -else
             .text-centered
               =image_tag(@response["Poster"])

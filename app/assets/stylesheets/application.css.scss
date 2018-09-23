@@ -17,7 +17,12 @@
 
 .background-new {
   background-image: linear-gradient(to right, red, orange, yellow, green, blue, purple);
+  height: 800px;
+  width: 100%;
+overflow: auto;
+
 }
+
 
 .text-centered {
   text-align: center;
@@ -29,5 +34,9 @@
 }
 
 .title {
+  font-family: cursive;
+}
+ 
+.title_2 {
   font-family: Impact, Charcoal, sans-serif;
 }
